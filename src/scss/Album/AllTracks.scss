@@ -1,0 +1,62 @@
+@import '../config';
+
+section.all-tracks {
+    margin: 2em 0;
+    padding: 2em;
+
+    section.container {
+        article {
+            @include Flex(sb);
+            padding: 1.5em 1em;
+            background: rgba(30, 30, 30, .25);
+            cursor: pointer;
+            transition: .5s;
+
+            div {
+                width: 15%;
+                @include Flex(c, c, c);
+            }
+
+            p {
+                @include Flex(none, c);
+                @include Clamp(.75, 4, 1);
+
+                &.num {
+                    width: 5%;
+                }
+
+                &.name {
+                    width: 40%;
+                    justify-content: flex-start;
+                }
+
+                &.length {  
+                    width: 10%;
+                }
+            }
+
+            &:nth-child(even) {
+                background: rgba(30, 30, 30, .5);
+            }
+
+            &:hover {
+                background: rgba(60, 60, 60, 1);
+            }
+        }
+    }
+
+    p.header {
+        font-weight: 500;
+        margin-bottom: 2em;
+    }
+
+    @media (max-width: 1000px) {
+        padding: .5em 0;
+
+        section.container {
+            article {
+                p { &.num { display: none; } }
+            }
+        }
+    }
+}

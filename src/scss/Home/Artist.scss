@@ -1,0 +1,163 @@
+@import '../config';
+
+section.artist {
+    min-height: 100vh;
+    position: relative;
+    @include Flex(none, none, c);
+
+    p.small-header {
+        text-transform: uppercase;
+        font-size: .7rem;
+        font-weight: 500;
+        margin-bottom: .5em;
+    }
+
+    section.content {
+        width: 60%;
+        min-width: 768px;
+        padding: 2.5em;
+        flex-grow: 1;
+        @include Flex(sb, none, c);
+
+        section.discs {
+            section.wrap {
+                @include Flex(sb, c);
+
+                span.arrow-icon {
+                    @include Rectangle(clamp(30px, 8vw, 50px));
+                    flex-shrink: 0;
+                    cursor: pointer;
+                }
+
+                section.container {
+                    display: flex;
+                    padding: .5em 1em;
+                    background: rgba(45, 45, 45, .9);
+                    flex-grow: 1;
+                    scroll-behavior: smooth;
+                    overflow-x: scroll;
+
+                    div.disc {
+                        &:not(:last-child) { margin-right: 1em; }
+                        width: 20%;
+                        min-width: 100px;
+                        aspect-ratio: 1;
+                        border-radius: .2em;
+                        overflow: hidden;
+                        position: relative;
+                        flex-shrink: 0;
+                        cursor: pointer;
+
+                        figure {
+                            @include FullSize;
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+
+                            img {
+                                @include FullSize;
+                                object-fit: cover;
+                                transition: 1s
+                            }
+                        }
+
+                        &:hover img { scale: 1.1 }
+                    }
+                }
+            }
+        }
+
+        section.info {
+            margin: 1em 0 1.5em 0;
+
+            div.div-info {
+                @include Flex(none, c);
+                &:not(:last-child) { margin-bottom: .5em; }
+
+                p {
+                    @include Flex(none, c);
+                    @include Clamp(.85, 4, 1);
+
+                    &.what {
+                        span {
+                            @include Rectangle(clamp(22px, 6vw, 30px));
+                            margin-right: .25em;
+                        }
+                    }
+
+                    &.value {
+                        color: $clr-greyd;
+                        margin-left: .75em;
+                    }
+                }
+            }
+        }
+
+        article {
+            margin-bottom: .5em;
+
+            p {
+                &.name {
+                    font-weight: 300;
+                    color: $clr-orange;
+                    position: relative;
+                    @include Clamp(1.85, 8, 2.25);
+                    margin-bottom: .5em;
+                    width: max-content;
+                    cursor: pointer;
+                    transition: .5s;
+
+                    &::before {
+                        content: '';
+                        height: 3px;
+                        width: 50%;
+                        background: $clr-orange;
+                        position: absolute;
+                        left: 0;
+                        top: -5px;
+                        transition: .5s;
+                    }
+
+                    &:hover {
+                        color: orangered;
+                        
+                        &::before { 
+                            background: orangered; 
+                            width: 100%;
+                        }
+                    }
+                }
+
+                &.desc {
+                    color: $clr-greyl;
+                    @include Clamp(.85, 4, 1);
+                }
+            }
+        }
+    }
+
+    figure.bg {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: -1;
+        @include FullSize;
+    
+        img {
+            @include FullSize;
+            object-fit: cover;
+            filter: grayscale(60%) opacity(.15);
+        }
+    }
+
+    @media (max-width: 768px) {
+        height: auto;
+        min-height: 100vh;
+
+        section.content {
+            width: 100%;
+            min-width: auto;
+            padding: 2.5em .5em;
+        }
+    }
+}

@@ -1,0 +1,199 @@
+@import '../config';
+
+section.tiles {
+    height: 100vh;
+    padding: 2em;
+    @include Flex(c);
+    position: relative;
+
+    figure.bg {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: -1;
+        @include FullSize;
+    
+        img {
+            @include FullSize;
+            object-fit: cover;
+            filter: grayscale(60%) opacity(.2);
+        }
+    }
+
+    article.artist-section {
+        width: 55%;
+
+        ul {
+            margin-top: 2em;
+            background: rgba(30, 30, 30, .75);
+
+            li {
+                @include Flex(sb, c);
+                padding: .75em .5em;
+
+                p {
+                    @include Clamp(.8, 4, 1);
+
+                    &.what {
+                        @include Flex(none, c);
+                        margin-right: .5em;
+
+                        span {
+                            @include Rectangle(clamp(20px, 5vw, 30px));
+                            margin-right: .25em;
+                        }
+                    }
+
+                    &.value { 
+                        color: $clr-greyl; 
+                        text-align: right;
+                    }
+                }
+            }
+        }
+
+        p.header {
+            font-weight: 600;
+            @include Clamp(1.8, 10, 2.75);
+            margin-bottom: .5em;
+        }
+
+        p.desc {
+            color: $clr-greyl;
+            @include Clamp(.8, 4, 1);
+            border-left: 5px solid $clr-blued;
+            padding-left: .5em;
+        }
+
+        button {
+            margin-top: 2em;
+            width: 100%;
+            cursor: pointer;
+            transition: .5s;
+            outline: 0;
+            border: 0;
+            border-radius: .25em;
+            background: $clr-blued;
+
+            label {
+                color: $clr-white;
+                padding: 1em 0;
+                @include Clamp(.85, 4, .95);
+                display: block;
+            }
+
+            &:hover { background: royalblue; }
+        }
+    }
+
+    section.images-section {
+        width: 35%;
+        @include Flex(sa, c);
+        height: 100%;
+
+        section.container {
+            height: 100%;
+            overflow-y: scroll;
+            width: 50%;
+            min-width: 200px;
+            background: #222222;
+            padding: 1.5em;
+
+            figure {
+                aspect-ratio: 1;
+                width: 100%;
+                &:not(:last-child) { margin-bottom: 1em; }
+                cursor: pointer;
+
+                img {
+                    @include FullSize;
+                    object-fit: cover;
+                }
+
+                &.active img {
+                    border: 4px solid $clr-blued;
+                    pointer-events: none
+                }
+            }
+        }
+
+        section.buttons {
+            span {
+                @include Rectangle(clamp(35px, 8vw, 50px));
+                border-radius: 50%;
+                background: #151515;
+                @include Flex(c, c);
+                color: $clr-greyl;
+                margin: 1em 0;
+                cursor: pointer;
+
+                svg {
+                    @include FullSize(60%);
+                    transition: .5s;
+                }
+
+                &.btm {
+                    rotate: -90deg;
+                }
+
+                &.top {
+                    rotate: 90deg;
+                }
+
+                &:hover svg { scale: 1.1 }
+            }
+        }
+    }
+
+    @media (max-width: 1000px) {
+        padding: 2em .5em;
+        height: auto;
+        min-height: 100vh;
+        flex-direction: column;
+
+        article.artist-section {
+            width: 100%;
+            margin-top: 1.5em;
+        }
+
+        section.images-section {
+            width: 100%;
+            flex-direction: column;
+
+            section.buttons {
+                width: 100%;
+                @include Flex(sb, c);
+
+                span {
+                    margin: 0;
+
+                    &.btm {
+                        rotate: 180deg;
+                    }
+
+                    &.top {
+                        rotate: 0deg;
+                    }
+                }
+            }
+
+            section.container {
+                display: flex;
+                width: 100%;
+                padding: .5em;
+
+                figure {
+                    flex-shrink: 0;
+                    height: max-content;
+                    width: 50%;
+                    max-width: 200px;
+
+                    &:not(:last-child) { 
+                        margin-right: 1em; 
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+}

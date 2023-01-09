@@ -1,0 +1,186 @@
+@import '../config';
+
+section.blog {
+    min-height: 100vh;
+    padding: 2em;
+
+    section.blog-header {
+        @include Flex(sb, c);
+        margin-bottom: 4em;
+
+        div.latest {
+            border-bottom: 2px solid $clr-orange;
+            padding-bottom: .5em;
+        }
+
+        p {
+            &.header {
+                font-size: 1.5rem;
+                font-weight: 600;
+                letter-spacing: -2px;
+                color: $clr-greyl;
+            }
+
+            &.title {
+                font-weight: 300;
+                color: $clr-greyl;
+                @include Clamp(.85, 4, 1);
+            }
+
+            &.date {
+                text-align: right;
+                @include Clamp(.75, 4, .8);
+                color: $clr-greyd;
+            }
+
+            &.latest {
+                @include Flex(sb, c);
+                margin-bottom: .5em;
+                cursor: pointer;
+                transition: .5s;
+                position: relative;
+                @include Clamp(.8, 4, 1);
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    height: 2px;
+                    width: 0;
+                    background: $clr-orange;
+                    transition: inherit;
+                }
+
+                span {
+                    transition: inherit;
+                    @include Rectangle(40px);
+                }
+
+                &:hover {
+                    span { 
+                        scale: 2 1; 
+                        color: $clr-orange;
+                    }
+
+                    &:before { width: 100%; }
+                }
+            }
+        }
+    }
+
+    section.container {
+        article.article-item {
+            margin-bottom: 5em;
+            @include Flex(sb);
+
+            figure {
+                width: 48%;
+
+                img {
+                    @include FullSize;
+                    object-fit: cover;
+                }
+            }
+
+            section.text {
+                padding-left: 1em;
+                @include Flex(sb, none, c);
+                width: 52%;
+
+                div.text {
+                    p {
+                        &.text-header {
+                            @include Clamp(1.5, 8, 2);                            
+                            font-weight: 200;
+                        }
+
+                        &.desc {
+                            color: $clr-greyd;
+                            @include Clamp(.8, 4, .9);                            
+                        }
+                    }
+                }
+                
+                button {
+                    width: max-content;
+                    outline: 0;
+                    border: 0;
+                    cursor: pointer;
+                    transition: .3s;
+                    border-radius: .25em;
+                    background: $clr-blued;
+
+                    label {
+                        padding: .75em 1.75em;
+                        display: block;
+                        color: $clr-white;
+                        font-weight: 500;
+                        @include Clamp(.8, 4, .9);                            
+                    }
+
+                    &:hover {
+                        background: royalblue;
+                    }
+                }
+
+                section.details {
+                    @include Flex(sb, c);
+
+                    p.category {
+                        color: $clr-greyl;
+                        font-family: 'Martel', serif;
+                        @include Clamp(.8, 4, .9);                            
+                        font-weight: 300;
+                    }
+
+                    div.tags {
+                        display: flex;
+
+                        span {
+                            margin-right: .5em;
+                            color: $clr-greyd;
+                            font-size: .8rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        padding: 2em .5em;
+
+        section.container {
+            article.article-item {
+                flex-direction: column;
+
+                figure {
+                    margin: 0 auto .75em auto;
+                    @include SetWidth(280, 100%, 600);
+                }
+
+                section.text {
+                    width: 100%;
+                    padding: 0;
+
+                    div.text {
+                        p {
+                            &.desc {
+                                margin: .5em 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        section.blog-header {
+            flex-direction: column;
+            
+            div.latest {
+                margin-top: 2em;
+            }
+        }
+    }
+}

@@ -1,0 +1,32 @@
+@import '../config';
+
+main.logreg.login {
+    section.options {
+        width: 100%;
+        @include Flex(sb, c);
+
+        a,
+        label { 
+            @include Clamp(.65, 4, .75);
+        }
+
+        div {
+            @include Flex(none, c);
+
+            label,
+            input { cursor: pointer; }
+
+            input {
+                margin-left: .25em;
+            }
+        }
+
+        a {
+            color: $clr-white;
+            text-decoration: none;
+            transition: .5s;
+
+            &:hover { color: cornflowerblue }
+        }
+    }
+}

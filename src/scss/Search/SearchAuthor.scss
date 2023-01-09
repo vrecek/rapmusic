@@ -1,0 +1,51 @@
+@import '../config';
+
+article.search-author {
+    margin: 2em 0;
+    display: flex;
+    cursor: pointer;
+
+    figure {
+        width: 10%;
+        aspect-ratio: 1;
+        height: max-content;
+
+        img {
+            @include FullSize;
+            object-fit: cover;
+        }
+    }
+
+    section.right {
+        flex-grow: 1;
+        @include Flex(sb, none, c);
+        margin-left: .5em;
+
+        p.author {
+            font-weight: 200;
+            font-size: 1.75rem;
+        }
+
+        section.details {
+            display: flex;
+
+            div.rate {
+                padding: .4em 1em;
+                border-radius: .25em;
+                background: rgba(30, 30, 30, .8);
+                margin-right: .25em;
+                display: flex;
+
+                span {
+                    @include Rectangle(30px);
+                    margin-right: .25em;
+                }
+
+                p {
+                    font-size: .85rem;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+}

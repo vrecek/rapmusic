@@ -1,0 +1,59 @@
+@import '../config';
+
+article.search-album {
+    display: flex;
+    cursor: pointer;
+
+    section.right {
+        @include Flex(sb, none, c);
+        padding: .5em;
+
+        p {
+            &.author {
+                color: $clr-greyd;
+                font-size: 1.25rem;
+            }
+
+            &.name {
+                font-size: 1.75rem;
+            }
+
+            &.total {
+                margin-bottom: .25em;
+                color: $clr-greyl;
+                font-size: .95rem;
+            }
+        }
+
+        section.rating {
+            display: flex;
+
+            div {
+                @include Flex(c, c, c);
+                margin-right: .75em;
+                background: rgba(30, 30, 30, .8);
+                padding: .5em 1.5em;
+
+                span {
+                    @include Rectangle(35px);
+                }
+
+                p {
+                    font-size: .9rem;
+                }
+            }
+        }
+    }
+
+    figure {
+        width: 20%;
+        height: max-content;
+        margin-right: .25em;
+        aspect-ratio: 1;
+
+        img {
+            @include FullSize;
+            object-fit: cover;
+        }
+    }
+}

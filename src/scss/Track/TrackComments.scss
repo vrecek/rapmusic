@@ -1,0 +1,118 @@
+@import '../config';
+
+section.track-comments {
+    padding: 2em;
+
+    section.container {
+        transition: .3s;
+
+        article {
+            display: flex;
+            &:not(:last-child) { margin-bottom: 4em; }
+
+            figure {
+                width: 8%;
+                height: max-content;
+                min-width: 40px;
+                margin-right: 1em;
+                aspect-ratio: 1;
+                
+                img {
+
+                    @include FullSize;
+                    object-fit: cover;
+                }
+            }   
+
+            section.wrap {
+                width: 92%;
+
+                section.details {
+                    @include Flex(none, c);
+
+                    p {
+                        &.author {
+                            margin-right: 1em;
+                            @include Clamp(.8, 4, .9);
+                        }
+
+                        &.date {
+                            color: $clr-greyd;
+                            font-size: .85rem;
+                            @include Clamp(.75, 4, .85);
+                            border-left: 1px solid $clr-greyd;
+                            padding-left: .5em;
+                        }
+                    }
+                }
+
+                p.text {
+                    margin: 1em 0 1.5em 0;
+                    color: $clr-greyl;
+                    width: 80%;
+                    @include Clamp(.75, 4, .95);
+                }
+
+                section.rating {
+                    @include Flex(none, c);
+
+                    div {
+                        @include Flex(none, c);
+                        font-size: .9rem;
+                        font-weight: 700;
+                        cursor: pointer;
+
+                        &.likes {
+                            margin-right: 2em;
+                        }
+
+                        span {
+                            margin-right: .25em; 
+                            @include Rectangle(clamp(25px, 6vw, 35px));
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    p.comment-toggler {
+        font-weight: 600;
+        font-size: 1rem;
+        @include Flex(none, c);
+        margin-bottom: 2em;
+        cursor: pointer;
+        width: max-content;
+
+        span {
+            @include Rectangle(30px);
+            transition: .3s;
+            margin-left: 1em;
+        }
+    }
+
+    @media (max-width: 768px) {
+        padding: .25em;
+
+        section.container {
+            article {
+                section.wrap {
+                    p.text { width: 100%; }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        section.container {
+            article {
+                section.wrap {
+                    section.details {
+                        flex-direction: column;
+                        align-items: flex-start;
+                    }
+                }
+            }
+        }
+    }
+}

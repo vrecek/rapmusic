@@ -1,0 +1,163 @@
+@import '../config';
+
+main.article {
+    margin-top: $navHeight;
+    padding: 2em;
+    min-height: 100vh;
+
+    div.content-wrap {
+        width: 100%;    
+        @include Flex(sb, none);
+        margin-bottom: 3em;
+        text-align: center;
+
+        div.content {
+            width: 65%;
+            margin: 0 auto;
+            background: rgba(30, 30, 30, .85);
+            padding: 1em;
+        }
+
+        section.socials {
+            position: sticky;
+            top: 25vw;
+            height: max-content;
+            
+            span {
+                cursor: pointer;
+                @include Rectangle(60px);
+                margin-bottom: .5em;
+                border-radius: 50%;
+                border: 1px solid #303030;
+                @include Flex(c, c);
+                background: rgba(30, 30, 30, .8);
+
+                svg {
+                    @include FullSize(50%);
+                    transition: .5s
+                }
+
+                &:hover svg { scale: 1.2 }
+            }
+        }
+
+        section.article-details {
+            @include Flex(c, c);
+            flex-wrap: wrap;
+
+            div.rate {
+                margin: 0 .25em;
+                margin-bottom: .5em;
+                background: rgba(20, 20, 20, .8);
+                border-radius: .25em;
+                padding: .4em;
+                @include Flex(none, c);
+                cursor: pointer;
+
+                &:nth-child(3) { pointer-events: none }
+
+                span {
+                    @include Rectangle(30px);
+                    margin-right: .25em;
+                }
+
+                p {
+                    font-size: .9rem;
+                }
+
+                &.like {
+                    background: green;
+                }
+
+                &.dislike {
+                    background: $clr-red;
+                }
+            }
+        }
+
+        article.text {
+            margin-top: 3em;
+            text-align: left;   
+
+            p {
+                color: $clr-greyl;
+                line-height: 2em;
+                @include Clamp(.8, 4, 1);
+            }
+
+            span {
+                &.header {
+                    font-weight: 600;
+                    color: $clr-white;
+                    font-size: 1.5rem;
+                    margin: 2em 0 .75em 0;
+                    display: block;
+                }
+            }
+        }
+
+        section.article-informations {
+            @include Flex(sb, c);
+
+            div.tags {
+                display: flex;
+
+                span {
+                    margin-right: .5em;
+                    color: $clr-greyd;
+                    @include Clamp(.75, 4, .85);
+                }
+            }
+            
+            h3 {
+                color: $clr-greyl;
+                font-size: .85rem;
+            }
+        }
+
+        figure.main {
+            width: 100%;
+            margin-top: 1.5em;
+            aspect-ratio: 2;
+
+            img {
+                @include FullSize;
+                object-fit: cover;
+            }
+        }
+
+        h1 {
+            font-weight: 200;
+            @include Clamp(1.5, 8, 2.25);
+        }
+
+        h2 {
+            color: $clr-greyd;
+            margin: 1em 0;
+            @include Clamp(.85, 4, .95);
+        }
+    }
+
+    @media (max-width: 1000px) {
+        padding: 2em .25em;
+        
+        div.content-wrap {
+            flex-direction: column-reverse;
+
+            article.text {
+                padding: 0 .5em;
+            }
+
+            section.socials {
+                margin-top: 2em;
+                position: static;
+                @include Flex(c, c);
+            }
+
+            div.content {
+                width: 100%;
+                padding: 1em .25em;
+            }
+        }
+    }
+}

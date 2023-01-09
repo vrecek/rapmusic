@@ -1,0 +1,68 @@
+@import '../config';
+
+main.search {
+    margin-top: $navHeight;
+    min-height: 100vh;
+    padding: 2em;
+
+    h1 {
+        font-size: 2rem;
+        font-weight: 200;
+        text-align: center;
+    }
+
+    section.container {
+        margin-top: 3em;
+    }
+
+    section.search-entry {
+        @include Flex(sb, c);
+
+        section.query {
+            p {
+                &.results {
+                    font-weight: 700;
+                    font-size: 2rem;
+                }
+
+                &.query {
+                    font-size: 1.1rem;
+                    color: $clr-greyl;
+                }
+            }
+        }
+
+        section.searchbar {
+            width: 40%;
+
+            div {
+                width: 100%;
+                position: relative;
+
+                input {
+                    width: 100%;
+                    border: 0;
+                    outline: 0;
+                    font-size: .95rem;
+                    padding: .75em;
+                    background: rgba(30, 30, 30, .9);
+                    border-radius: .15em;
+                    color: $clr-greyd;
+
+                    &::placeholder {
+                        opacity: .25;
+                        font-size: .8rem;
+                    }
+                }
+
+                span {
+                    @include Rectangle(30px);
+                    position: absolute;
+                    right: .5em;
+                    top: 50%;
+                    translate: 0 -50%;
+                }
+            }
+        }
+    }
+}

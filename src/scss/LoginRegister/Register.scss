@@ -1,0 +1,18 @@
+@import '../config';
+
+main.logreg.register {
+    div.passwords {
+        @include Flex(sb, c);
+        width: 100%;
+
+        section.input {
+            width: 48%;
+        }
+
+        @media (max-width: 480px) {
+            flex-direction: column;
+
+            section.input { width: 100%; }
+        }
+    }
+}

@@ -1,0 +1,55 @@
+/*
+    font-family: 'Nunito', sans-serif; 
+    200 - 1000 (-900)
+
+    font-family: 'Martel', serif;
+    200 - 700 (-500)
+*/
+
+@import './config';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+body {
+    background-image: linear-gradient(rgba(40, 40, 40, 0.97), rgba(40, 40, 40, 0.97)), url('../images/header.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: 50% 50%;
+    color: $clr-white;
+    overflow-x: hidden;
+    font-family: 'Nunito', sans-serif;
+    width: 100vw;
+    min-height: 100vh;
+
+    svg {
+        @include FullSize;
+        pointer-events: none;
+    }
+
+    span.layout-arrow {
+        position: fixed;
+        right: 6px;
+        bottom: 6px;
+        @include Rectangle(30px);
+        cursor: pointer;
+        transition: .5s;
+        color: royalblue;
+        opacity: 0;
+        pointer-events: none;
+
+        &:hover { color: cornflowerblue; }
+    }
+}
+
+@media (max-width: 480px) {
+    div.App,
+    div#root {
+        overflow-x: hidden;
+    }
+}

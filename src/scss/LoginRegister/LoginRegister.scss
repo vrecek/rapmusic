@@ -1,0 +1,96 @@
+@import '../config';
+
+main.logreg {
+    min-height: calc(100vh - $navHeight);
+    margin-top: $navHeight;
+    @include Flex(c, c);    
+
+    form {
+        p.header {
+            font-weight: 200;
+            @include Clamp(1.25, 8, 2);
+            margin-bottom: .5em;
+            text-transform: uppercase;
+        }
+
+        @include Flex(c, c, c);
+        border-radius: .2em;
+        @include SetWidth(480, 40%, 1000);
+        background: rgba(30, 30, 30, .95);
+        padding: 2em;
+
+        section.input {
+            width: 100%;
+            margin-bottom: .5em;
+
+            label {
+                text-transform: uppercase;
+                @include Clamp(.6, 4, .7);
+                font-weight: 500;
+            }
+
+            div {
+                width: 100%;
+                position: relative;
+
+                input {
+                    width: 100%;
+                    background: #252525;
+                    outline: 0;
+                    border: 0;
+                    padding: .75em;
+                    color: $clr-white;
+                    @include Clamp(.7, 5, .9);
+                }
+
+                span.toggler {
+                    position: absolute;
+                    right: .5em;
+                    top: 50%;
+                    translate: 0 -50%;
+                    @include Rectangle(30px);
+                    cursor: pointer;
+
+                    span {
+                        width: 100%;
+                        height: 3px;
+                        background: $clr-white;
+                        position: absolute;
+                        lefT: 50%;
+                        top: 50%;
+                        translate: -50% -50%;
+                        rotate: 45deg;
+                    }
+                }
+            }
+        }
+
+        button {
+            margin-top: 1em;
+            background: $clr-blued;
+            border: 0;
+            cursor: pointer;
+            outline: 0;
+            border-radius: .25em;
+            width: 100%;
+            transition: .3s;
+
+            label {
+                padding: .75em 0;
+                display: block;
+                @include Clamp(.85, 5, .95);
+                color: $clr-white;
+            }
+
+            &:hover { background: royalblue; }
+        }
+    }
+
+    @media (max-width: 480px) {
+        form {
+            @include ResetWidth();
+            width: 95%;
+            padding: .75em;
+        }
+    }
+}

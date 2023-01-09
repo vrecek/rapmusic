@@ -1,0 +1,58 @@
+@import '../config';
+
+article.search-track {
+    @include Flex(sb, c);
+    cursor: pointer;
+    padding: 1em;
+    background: rgba(20, 20, 20, .5);
+    margin: 2em 0;
+
+    section.left {
+        width: 40%;
+
+        p {
+            &.author {
+                color: $clr-greyd;
+                font-weight: 500;
+                font-size: .9rem;
+            }
+
+            &.name {
+                font-size: 1.5rem;
+                margin: .25em 0 .75em 0;
+            }
+
+            &.album {
+                @include Flex(none, c);
+                color: $clr-greyl;
+
+                span {
+                    margin-right: .25em;
+                    @include Rectangle(25px);
+                    color: $clr-white;
+                }
+            }
+        }
+    }
+
+    section.rating {
+        display: flex;
+
+        div.rate {
+            margin-left: .25em;
+            aspect-ratio: 1;
+            @include Flex(c, c, c);
+            background: rgba(20, 20, 20, .65);
+            border-radius: .15em;
+            padding: .5em 1em;
+
+            span {
+                @include Rectangle(40px);
+            }
+
+            p {
+                font-weight: 500;
+            }
+        }
+    }
+}

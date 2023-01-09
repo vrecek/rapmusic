@@ -1,0 +1,188 @@
+@import '../config';
+
+main.track-page {
+    min-height: 100vh;
+    padding-top: $navHeight;
+
+    section.track-video {
+        padding: 2em;
+        @include Flex(c, c, c);
+        width: 100%;
+
+        p {
+            font-weight: 500;
+            margin-bottom: 1em;
+        }
+
+        section {
+            width: 100%;
+
+            iframe {
+                margin: 0 auto;
+                display: block;
+                width: 50%;
+                aspect-ratio: 1.75;
+            }
+        }
+    }
+
+    section.content {
+        @include Flex(sb);
+        margin-top: calc(1.5rem + 30px + 2rem);
+        padding: 2em;
+    }
+
+    section.informations {
+        margin-top: 3.5em;
+        padding: 0 2em;
+        background: rgba(25, 25, 25, .6);
+        position: relative;
+        width: 100%;
+        @include Flex(none, c);
+
+        section.text {
+            width: 60%;
+            @include Flex(sb, none, c);
+            padding: 1em 2em;
+
+            div {
+                margin: .25em 0;
+            }
+
+            div.feats {
+                @include Flex(none, c);
+
+                p {
+                    color: $clr-greyl;
+                    font-size: .8rem;
+                    margin-right: .5em;
+                }
+
+                span {
+                    font-size: .9rem;
+                    margin-right: .5em;
+                }
+            }
+
+            p {
+                &.author {
+                    font-weight: 300;
+                    font-size: 1.35rem;
+                    cursor: pointer;
+                    width: max-content;
+                }
+
+                &.prod {
+                    @include Clamp(.75, 4, .9);
+                    margin-bottom: .75em;
+                }
+
+                &.name {
+                    font-weight: 600;
+                    @include Clamp(1.5, 8, 2);
+                }
+
+                &.from,
+                &.time {
+                    color: $clr-greyd;
+                    display: flex;
+                    font-weight: 300;
+                    font-size: .85rem;
+
+                    span {
+                        @include Rectangle(20px);
+                        margin-right: .25em;
+                    }
+                }
+            }
+        }
+
+        section.rating {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            display: flex;
+
+            div.rate {
+                @include Flex(none, c);
+                padding: .75em 1.25em;
+                background: rgba(25, 25, 25, .6);
+
+                p {
+                    font-weight: 700;
+                    @include Clamp(.85, 4, 1);
+                }
+
+                span {
+                    @include Rectangle(clamp(25px, 6vw, 30px));
+                    margin-right: .25em;
+                }
+            }
+        }
+
+
+        figure {
+            width: 20%;
+            flex-shrink: 0;
+            height: max-content;
+            aspect-ratio: 1;
+
+            img {
+                @include FullSize;
+                object-fit: cover;
+            }
+        }
+    }
+
+    @media (max-width: 1000px) {
+        section.track-video {
+            padding: 2em .5em;
+            
+            section {
+                iframe {
+                    width: 100%;
+                }
+            }
+        }
+
+        section.content {
+            flex-direction: column;
+            padding: .5em;
+        }
+
+        section.informations {
+            flex-direction: column;
+            margin-top: 1em;
+            padding: 0 .5em;
+            padding-top: .5em;
+
+            section.text {
+                width: 100%;
+                padding: 1em 0;
+            }
+
+            figure {
+                width: 200px;
+                max-width: 100%;
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        section.informations {
+            padding-top: 0;
+
+            section.rating {
+                width: 100%;
+
+                div.rate {
+                    flex-grow: 1;
+                    padding: .75em .25em;
+                    justify-content: center;
+                }
+            }
+            
+            figure { display: none; }
+        }
+    }
+}

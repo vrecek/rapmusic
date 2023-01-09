@@ -1,0 +1,171 @@
+@import '../config';
+
+section.navigation-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(30, 30, 30, .875);
+    translate: 0 -100%;
+    transition: .5s;
+    @include Flex(none, none, c);
+
+    aside {
+        padding: 2em 4em;
+        width: 30%;
+        flex-grow: 1;
+        @include Flex(sb, none);
+        width: 100%;
+
+        section.left-menu {
+            @include Flex(sb, none, c);
+            flex-grow: 1;
+
+            section.socials {
+                @include Flex(none, c);
+    
+                span {
+                    @include Rectangle(70px);
+                    margin-right: .75em;
+                    cursor: pointer;
+                    transition: .5s;
+    
+                    &:hover {
+                        scale: 1.1;
+                        color: $clr-greyd;
+                    }
+                }
+            }
+    
+            ul {
+                list-style: none;
+
+                li {
+                    padding: .75em 0;
+    
+                    a {
+                        transition: .5s;
+                        @include Clamp(1, 8, 1.5);
+                        list-style: none;
+                        color: $clr-greyd;
+                        text-decoration: none;
+                        font-weight: 500;
+                        position: relative;
+    
+                        &::before {
+                            content: '';
+                            transition: .5s;
+                            position: absolute;
+                            left: -.5em;
+                            top: 0;
+                            height: 0;
+                            width: 5px;
+                            background: $clr-blued;
+                        }
+    
+                        &:hover {
+                            color: $clr-white;
+    
+                            &::before {
+                                height: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        section.right-menu {
+            width: 40%;
+            @include Flex(sb, c, c);
+
+            section.searchbar {
+                width: 100%;
+                
+                div {
+                    @include Flex(sb);
+                    overflow: hidden;
+
+                    input {
+                        display: block;
+                        flex-grow: 1;
+                        background: #404040;
+                        border: 0;
+                        outline: 0;
+                        padding: .5em 1em;
+                        color: $clr-white;
+                        @include Clamp(.75, 5, .9);
+
+                        &::placeholder {
+                            font-size: .75rem;
+                            opacity: .4;
+                        }
+                    }
+
+                    span {
+                        @include Rectangle(clamp(40px, 13vw, 55px));
+                        background: #404040;
+                        @include Flex(c, c);
+                        flex-shrink: 0;
+
+                        svg {
+                            @include FullSize(50%);
+                        }
+                    }
+                }
+            }
+
+            figure {
+                width: 80%;
+
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    span.menu-toggler {
+        margin: 0 0 0 auto;
+        margin-top: .8em;
+        cursor: pointer;
+        margin-right: 1em;
+        @include Rectangle(35px);
+        display: block;
+    }
+
+    @media (max-width: 768px) {
+        aside {
+            flex-direction: column-reverse;
+            padding: 1em;
+
+            section.left-menu {
+                ul { margin-top: 2em; }
+            }
+
+            section.right-menu {
+                width: 100%;
+
+                section.searchbar {
+                    div {
+                        position: relative;
+
+                        input {
+                            padding: .75em 1em;
+                        }
+
+                        span {
+                            position: absolute;
+                            right: 0;
+                            top: 50%;
+                            translate: 0 -50%;
+                        }
+                    }
+                }
+    
+                figure { display: none; }
+            }
+        }
+    }
+}

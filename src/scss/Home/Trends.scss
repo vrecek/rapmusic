@@ -1,0 +1,91 @@
+@import '../config';
+
+section.trends {
+    min-height: 100vh;
+    padding: 2em;
+
+    section.container {
+        article {
+            &:not(:last-child) { margin-bottom: 1.5em; }
+            cursor: pointer;
+            @include Flex(sb);
+
+            figure {
+                width: 8%;
+                aspect-ratio: 1;
+                min-width: 50px;
+                height: max-content;
+                overflow: hidden;
+
+                img {
+                    @include FullSize;
+                    object-fit: cover;
+                    transition: .2s;
+                }
+            }
+
+            p {
+                @include Flex(none, c);
+
+                &.num {
+                    width: 10%;
+                    font-weight: 700;
+                    font-family: 'Martel', serif;
+                }
+
+                &.name {
+                    width: 30%;
+                    font-weight: 300;
+                    display: inline-block;
+                    word-wrap: break-word;
+                    margin-right: .25em;
+                    @include Clamp(.8, 4.5, 1.2);
+                }
+
+                &.author {
+                    width: 25%;
+                    @include Clamp(.8, 4.5, 1);
+                }
+            }
+
+            section {
+                width: 7%;
+                @include Flex(c, c, c);
+                min-width: max-content;
+
+                div {
+                    @include Flex(sb, c);
+                    @include Clamp(.8, 4.5, 1);
+
+                    span {
+                        @include Rectangle(clamp(20px, 5vw, 25px));
+                        margin-right: .2em;
+                    }
+                }
+            }
+
+            &:hover img {
+                scale: 1.1
+            }
+        }
+    }
+
+    p.header {
+        text-transform: uppercase;
+        font-weight: 1000;
+        margin-bottom: 2em;
+        @include Clamp(1.2, 8, 1.5);
+    }
+
+    @media (max-width: 1000px) {
+        padding: 2em .25em;
+
+        section.container {
+            article {
+                p {
+                    &.num { display: none; }
+                }
+            }   
+        }
+    }
+}

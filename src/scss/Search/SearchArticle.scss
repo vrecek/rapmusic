@@ -1,0 +1,67 @@
+@import '../config';
+
+article.search-article {
+    margin: 2em 0;
+    cursor: pointer;
+    display: flex;
+
+    figure {
+        width: 22%;
+        aspect-ratio: 1.5;
+        height: max-content;
+
+        img {
+            @include FullSize;
+            object-fit: cover
+        }
+    }
+
+    section.right {
+        @include Flex(sb, none, c);
+        flex-grow: 1;
+        padding: .75em;
+        background: rgba(20, 20, 20, .5);
+
+        p.text {
+            color: $clr-greyd;
+            font-size: .9rem;
+            width: 40%;
+            margin: .5em 0;
+        }
+
+        div.wrap {
+            width: 100%;
+            @include Flex(sb);
+
+            &:nth-child(3) {
+                align-items: flex-end;
+            }
+        }
+
+        div.tags {
+            display: flex;
+
+            span {
+                margin-left: .5em;
+                color: $clr-greyl;
+                padding: .35em;
+                background: rgba(30, 30, 30, .75);
+                border-radius: .25em;
+            }
+        }
+
+        p {
+            &.title {
+                width: 50%;
+                font-size: 1.75rem;
+                font-weight: 600;
+            }
+
+            &.category,
+            &.date {
+                color: $clr-greyd;
+                font-size: .95rem;
+            }
+        }
+    }
+}

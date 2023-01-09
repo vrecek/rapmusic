@@ -1,0 +1,228 @@
+@import '../config';
+
+section.tracks {
+    min-height: 100vh;
+    padding: 2em;
+    @include Flex(sb, none);
+
+    p.header {
+        font-size: .9rem;
+        font-weight: 700;
+        margin-bottom: 1.5em;
+    }
+
+    section.video-section {
+        width: 45%;
+        height: max-content;
+        position: sticky;
+        top: 100px;
+
+        section.open-yt {
+            @include Flex(sb, c);
+            margin-top: .5em;
+            cursor: pointer;
+
+            p {
+                font-size: 1rem;
+                font-weight: 500;
+                transition: .5s;
+            }
+
+            span {
+                @include Rectangle(40px);
+                color: $clr-red;
+            }
+
+            &:hover {
+                p { color: red; }
+            }
+        }
+
+        section.video {
+            iframe {
+                width: 100%;
+                aspect-ratio: 1.5;
+            }
+        }
+    }
+
+    section.track-section {
+        width: 50%;
+
+        section.track {
+            background: rgba(30, 30, 30, .8);
+            border-radius: .25em;
+            padding: 1em;
+
+            article.lyrics {
+                margin-top: 2em;
+
+                p {
+                    background: rgba(20, 20, 20, .4);
+                    border-radius: .25em;
+                    color: $clr-greyl;
+                    white-space: pre-line;
+                    padding: 1em;
+                    @include Clamp(.8, 4, 1);
+
+                    span.icon {
+                        @include Rectangle(50px);
+                        opacity: .1;
+                        margin: 1em 0;
+                    }
+
+                    span:not(.icon) {
+                        margin-top: 1em;
+                        display: block;
+                    }
+                }
+
+                a {
+                    @include Flex(none, c);
+                    text-decoration: none;
+                    color: $clr-greyd;
+                    font-size: .9rem;
+                    margin: 0 0 0 auto;
+                    width: max-content;
+                    margin-top: 1em;
+                    transition: .3s;
+
+                    span {
+                        @include Rectangle(25px);
+                        margin-left: .25em;
+                    }
+
+                    &:hover {
+                        color: $clr-white;
+                    }
+                }
+            }
+
+            section.rating {
+                display: flex;
+                flex-wrap: wrap;
+                margin-top: 1.5em;
+
+                div {
+                    @include Flex(sb, c);
+                    padding: .25em .75em;
+                    background: #151515;
+                    border-radius: 1em;
+                    &:not(:last-child) { margin-right: .5em; }
+                    border: 1px solid #404040;
+                    color: $clr-greyl;
+                    margin-bottom: .5em;
+
+                    span {
+                        @include Rectangle(25px);
+                        margin-right: .2em;
+                    }
+
+                    p {
+                        font-size: .85rem;
+                        font-weight: 600;
+                    }
+                }
+            }
+
+            section.title-author {
+                position: relative;
+
+                div.feats {
+                    @include Flex(none, c);
+                    margin-top: 1em;
+                    margin-bottom: .25em;
+
+                    p {
+                        color: $clr-greyl;
+                        font-size: .8rem;
+                        margin-right: .5em;
+                    }
+    
+                    span {
+                        font-size: .9rem;
+                        margin-right: .5em;
+                    }
+                }
+
+                p {
+                    @include Flex(none, c);
+
+                    &.from {
+                        font-size: .85rem;
+
+                        color: $clr-greyd;
+
+                        span {
+                            color: $clr-greyl;
+                            font-size: inherit;
+                            margin-right: .5em;
+                        }
+                    }
+
+                    &.production {
+                        font-size: .85rem;
+                        margin-bottom: .5em;
+                        color: $clr-greyd;
+                    }
+
+                    &.ta {
+                        font-weight: 300;
+                        display: flex;
+                        flex-wrap: wrap;
+                        margin-bottom: 1em;
+                        
+                        span {
+                            margin-right: .25em;
+                            color: $clr-greyl;
+                            font-weight: 600;
+                            font-size: 1.5rem;
+                            position: relative;
+
+                            &::before {
+                                content: '';
+                                position: absolute;
+                                left: 0;
+                                top: -6px;
+                                height: 2px;
+                                width: 50%;
+                                background: royalblue;
+                            }
+                        }
+                    }
+                }
+
+                span.icon {
+                    position: absolute;
+                    top: 50%;
+                    right: 0;
+                    translate: 0 -50%;
+                    opacity: .2;
+                    @include Rectangle(80px);
+                }
+            }
+        }
+    }
+
+    @media (max-width: 1000px) {
+        flex-direction: column;
+        padding: 2em .5em;
+
+        section.track-section {
+            width: 100%;
+        }
+
+        section.video-section {
+            width: 100%;
+            margin-top: 2em;
+        }
+    }
+
+    @media (max-width: 480px) {
+        section.track-section {
+            section.track {
+                padding: 1em .25em;
+            }
+        }
+    }
+}

@@ -1,0 +1,121 @@
+@import '../config';
+
+footer.layout-footer {
+    background: #151515;
+    padding-top: 6em;
+
+    section.wrap {
+        @include Flex(sa, c);
+        padding: 0 3em 6em 3em;
+
+        section.footer-links {
+            p {
+                font-weight: 200;
+                font-size: 1.75rem;
+                margin-bottom: .25em;
+            }
+
+            div {
+                display: flex;
+
+                ul {
+                    list-style: none;
+
+                    &:first-child {
+                        margin-right: 4em;
+                    }
+
+                    li {
+                        &:not(:last-child) { margin-bottom: .5em; }
+
+                        a {
+                            text-decoration: none;
+                            color: #606060;
+                            @include Clamp(1, 5, 1.2);
+                            font-weight: 600;
+                            transition: .5s;
+
+                            &:hover { color: $clr-greyl; }
+                        }
+                    }
+                }
+            }
+        }
+
+        section.logo {
+            width: 25%;
+            min-width: 200px;
+
+            figure {
+                width: 100%;
+
+                img {
+                    width: 100%;
+                }
+            }
+
+            p {
+                color: #606060;
+                letter-spacing: 1px;
+                @include Clamp(1, 6, 1.2);
+                font-weight: 600;
+                text-align: center;
+            }
+        }
+    }
+
+    section.socials {
+        @include Flex(c, c);
+        background: #121212;
+        padding: 1em 0;
+
+        span {
+            margin: 0 1em;
+            @include Rectangle(60px);
+            cursor: pointer;
+            transition: .5s;
+
+            &:hover {
+                scale: 1.1;
+                color: $clr-greyl;
+            }
+        }
+    }
+
+    p.copy {
+        text-align: center;
+        padding: 1.5em 1em;
+        font-size: .9rem;
+    }
+
+    @media (max-width: 768px) {
+        padding-top: 3em;
+
+        section.wrap {
+            padding-bottom: 2em;
+            flex-direction: column;
+
+            section.footer-links {
+                margin-top: 3em;
+                text-align: center;
+
+                div {
+                    justify-content: center;
+
+                    ul {
+                        &:first-child { margin-right: 0; }
+                    }
+                }
+            }
+
+            section.logo {
+                width: 100%;
+
+                figure {
+                    max-width: 300px;
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
+}

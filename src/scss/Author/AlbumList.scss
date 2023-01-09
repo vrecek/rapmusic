@@ -1,0 +1,86 @@
+@import '../config';
+
+main.artist {
+    section.left-section {
+        background: #202020;
+        padding-top: 1em;
+    }
+
+    section.album-list {
+        padding: 2em;
+        margin: 3em 0 1em 0;
+    
+        p.header {
+            font-weight: 500;
+            margin-bottom: 1.5em;
+        }
+    
+        section.container {
+            display: flex;
+            flex-wrap: wrap;
+            background: #202020;
+            padding: .5em;
+            padding-top: 1.5em;
+    
+            article.album-item {
+                width: 20%;
+                min-width: 260px;
+                overflow: hidden;
+                border-radius: .2em;
+                background: #191919;
+                margin: 0 .5em 1.5em .5em;
+                border-bottom: 8px solid $clr-orange;
+                cursor: pointer;
+                transition: .5s;
+    
+                section {
+                    padding: .5em;
+    
+                    p {
+                        text-align: center;
+        
+                        &.name {
+                            font-weight: 500;
+                            @include Clamp(1, 5, 1.25);
+                        }
+        
+                        &.date {
+                            color: $clr-greyl;
+                            font-size: .95rem;
+                            margin: .2em 0 .25em;
+                        }
+                    }
+                }
+    
+                figure {
+                    width: 100%;
+                    aspect-ratio: 1;
+    
+                    img {
+                        @include FullSize;
+                        object-fit: cover;
+                    }
+                }
+    
+                &:hover {
+                    border-color: $clr-blued;
+                }
+            }
+
+            @media (max-width: 1000px) { justify-content: center; }
+        }
+
+        @media (max-width: 480px) {
+            padding: 1em 0em;
+
+            section.container {
+                padding: .5em 0;
+                
+                article.album-item {
+                    min-width: auto;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

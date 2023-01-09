@@ -1,0 +1,131 @@
+@import '../config';
+
+main.album,
+main.artist {
+    min-height: 100vh;
+    padding: 2em;
+    margin-top: $navHeight;
+
+    div.wrapper {
+        @include Flex(sa);
+    }
+
+    section.left-section {
+        width: 40%;
+
+        ul {
+            margin-top: 1em;
+            list-style: none;
+
+            li {
+                @include Flex(sb, c);
+                padding: 1em .5em;
+                background: rgba(30, 30, 30, .65);
+                
+                p {
+                    @include Clamp(.75, 4, .9);
+
+                    &:last-child {
+                        color: $clr-greyd;
+                    }
+                }
+
+                &:nth-child(odd) {
+                    background: rgba(20, 20, 20, .5);
+                }
+            }
+        }
+
+        figure {
+            width: 60%;
+            min-width: 280px;
+            aspect-ratio: 1;
+            margin: 0 auto;
+
+            img {
+                @include FullSize;
+                object-fit: cover;
+            }
+        }
+    }
+
+    section.right-section {
+        width: 50%;
+        padding: 1em;
+        background: rgba(30, 30, 30, .5);
+        height: max-content;
+        position: sticky;
+        top: 90px;
+
+        section.rating {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 2em;
+
+            div.rate {
+                @include Flex(none, c);
+                padding: 1em 2em;
+                margin-bottom: .5em;
+                background: #303030;
+                border-radius: .2em;
+                margin-right: .75em;
+
+                span {
+                    margin-right: .25em;
+                    @include Rectangle(30px);
+                }
+
+                p {
+                    @include Clamp(.8, 4, .9);
+                }
+            }
+        }
+
+        h1 {
+            font-weight: 300;
+            @include Clamp(1.5, 8, 2.25);
+        }
+
+        p.desc {
+            margin-top: 2em;
+            line-height: 2em;
+            @include Clamp(.85, 4, .95);
+            color: $clr-greyd;
+            white-space: pre-line;
+        }
+
+        h2 {
+            color: $clr-greyl;
+        }
+    }
+
+    @media (max-width: 1000px) {
+        div.wrapper { flex-direction: column; }
+
+        section.right-section {
+            width: 100%;
+        }
+
+        section.left-section {
+            width: 100%;
+            margin-bottom: 1em;
+        }
+    }
+
+    @media (max-width: 768px) { padding: 2em .5em; }
+
+    @media (max-width: 480px) {
+        section.right-section {
+            padding: 1em .5em;
+
+            section.rating {
+                flex-direction: column;
+
+                div.rate { 
+                    width: 100%; 
+                    justify-content: center;
+                }
+            }
+        }
+    }
+}
