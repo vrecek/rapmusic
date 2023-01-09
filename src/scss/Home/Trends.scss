@@ -40,6 +40,7 @@ section.trends {
                     word-wrap: break-word;
                     margin-right: .25em;
                     @include Clamp(.8, 4.5, 1.2);
+                    @include Flex(none, c);
                 }
 
                 &.author {

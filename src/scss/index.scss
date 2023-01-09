@@ -16,13 +16,13 @@
     font-weight: 400;
 }
 
+
 body {
     background-image: linear-gradient(rgba(40, 40, 40, 0.97), rgba(40, 40, 40, 0.97)), url('../images/header.jpg');
     background-size: cover;
     background-attachment: fixed;
     background-position: 50% 50%;
     color: $clr-white;
-    overflow-x: hidden;
     font-family: 'Nunito', sans-serif;
     width: 100vw;
     min-height: 100vh;
@@ -47,9 +47,8 @@ body {
     }
 }
 
-@media (max-width: 480px) {
-    div.App,
-    div#root {
+@media screen and (max-width: 768px) {
+    body {
         overflow-x: hidden;
     }
 }

@@ -9,6 +9,7 @@ nav.layout-navigation {
     left: 0;
     top: 0;
     width: 100%;
+    overflow: hidden;
     z-index: 999;
 
     &.background {
