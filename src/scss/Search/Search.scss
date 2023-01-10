@@ -5,12 +5,6 @@ main.search {
     min-height: 100vh;
     padding: 2em;
 
-    h1 {
-        font-size: 2rem;
-        font-weight: 200;
-        text-align: center;
-    }
-
     section.container {
         margin-top: 3em;
     }
@@ -22,11 +16,11 @@ main.search {
             p {
                 &.results {
                     font-weight: 700;
-                    font-size: 2rem;
+                    @include Clamp(1.5, 7, 2);
                 }
 
                 &.query {
-                    font-size: 1.1rem;
+                    @include Clamp(.95, 5, 1.1);
                     color: $clr-greyl;
                 }
             }
@@ -43,8 +37,8 @@ main.search {
                     width: 100%;
                     border: 0;
                     outline: 0;
-                    font-size: .95rem;
                     padding: .75em;
+                    @include Clamp(.85, 3, .95);
                     background: rgba(30, 30, 30, .9);
                     border-radius: .15em;
                     color: $clr-greyd;
@@ -62,6 +56,23 @@ main.search {
                     top: 50%;
                     translate: 0 -50%;
                 }
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        padding: 2em .5em;
+
+        section.search-entry {
+            flex-direction: column;
+
+            section.query {
+                width: 100%;
+                margin-bottom: 1.25em;
+            }
+
+            section.searchbar {
+                width: 100%;
             }
         }
     }

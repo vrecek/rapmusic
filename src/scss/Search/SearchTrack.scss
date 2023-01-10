@@ -18,13 +18,14 @@ article.search-track {
             }
 
             &.name {
-                font-size: 1.5rem;
                 margin: .25em 0 .75em 0;
+                @include Clamp(1.25, 6, 1.5);
             }
 
             &.album {
                 @include Flex(none, c);
                 color: $clr-greyl;
+                @include Clamp(.8, 4, 1);
 
                 span {
                     margin-right: .25em;
@@ -47,12 +48,35 @@ article.search-track {
             padding: .5em 1em;
 
             span {
-                @include Rectangle(40px);
+                @include Rectangle(clamp(20px, 8vw, 40px));
             }
 
             p {
                 font-weight: 500;
+                @include Clamp(.8, 4, 1);
             }
+        }
+
+        @media (max-width: 768px) {
+            div.rate {
+                flex-grow: 1;
+                aspect-ratio: initial;
+                padding: .5em;
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        padding: .5em;
+        flex-direction: column;
+
+        section.left {
+            width: 100%;
+            margin-bottom: 1em;
+        }
+
+        section.rating {
+            width: 100%;
         }
     }
 }

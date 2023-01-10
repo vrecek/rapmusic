@@ -27,6 +27,8 @@ main.artist {
 
                     &:last-child {
                         color: $clr-greyd;
+                        text-align: right;
+                        margin-left: .75em;
                     }
                 }
 

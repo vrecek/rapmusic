@@ -2,6 +2,7 @@
 
 article.search-album {
     display: flex;
+    margin-bottom: 2em;
     cursor: pointer;
 
     section.right {
@@ -11,17 +12,18 @@ article.search-album {
         p {
             &.author {
                 color: $clr-greyd;
-                font-size: 1.25rem;
+                @include Clamp(1, 5, 1.25);
             }
 
             &.name {
-                font-size: 1.75rem;
+                @include Clamp(1.25, 5, 1.75);
+                margin-bottom: .5em;
             }
 
             &.total {
                 margin-bottom: .25em;
                 color: $clr-greyl;
-                font-size: .95rem;
+                @include Clamp(.8, 4, .95);
             }
         }
 
@@ -32,14 +34,14 @@ article.search-album {
                 @include Flex(c, c, c);
                 margin-right: .75em;
                 background: rgba(30, 30, 30, .8);
-                padding: .5em 1.5em;
+                padding: .5em clamp(.5em, 5vw, 1.5em);
 
                 span {
-                    @include Rectangle(35px);
+                    @include Rectangle(clamp(25px, 6vw, 35px));
                 }
 
                 p {
-                    font-size: .9rem;
+                    @include Clamp(.8, 4, .9);
                 }
             }
         }
@@ -54,6 +56,28 @@ article.search-album {
         img {
             @include FullSize;
             object-fit: cover;
+        }
+    }
+
+    @media (max-width: 480px) {
+        position: relative;
+
+        figure { 
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 50px;
+        }
+
+        section.right {
+            width: 100%;
+
+            section.rating {
+                div {
+                    flex-grow: 1;
+                    margin-right: .25em;
+                }
+            }
         }
     }
 }

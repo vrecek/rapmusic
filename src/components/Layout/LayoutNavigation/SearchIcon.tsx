@@ -11,9 +11,9 @@ const SearchIcon = () => {
 
         bar.classList.toggle('active')
 
-        bar.style.translate = bar.classList.contains('active') 
+        bar.style.translate = bar.classList.contains('active')
             ? '0 0'
-            : '100% 0'
+            : '0 -400%'
     }
 
 

@@ -87,7 +87,7 @@ const SEARCH = () => {
                                 id={x.id}
                                 image={x.image}
                                 tags={x.tags}
-                                text={x.text}
+                                text={x.text.slice(0, 100)}
                                 title={x.title}
                             />
 

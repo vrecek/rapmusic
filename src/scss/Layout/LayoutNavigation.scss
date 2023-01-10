@@ -9,7 +9,6 @@ nav.layout-navigation {
     left: 0;
     top: 0;
     width: 100%;
-    overflow: hidden;
     z-index: 999;
 
     &.background {
@@ -78,9 +77,8 @@ nav.layout-navigation {
             right: 0;
             top: 100%;
             transition: .3s;
-            translate: 100% 0;
-            width: 30%;
-            width: 300px;
+            translate: 0 -500%;
+            @include SetWidth(480, 100%, 600);
 
             div {
                 @include Flex(sb);
@@ -95,8 +93,8 @@ nav.layout-navigation {
                 input {
                     outline: 0;
                     border: 0;
-                    width: 240px;
                     padding: 0 .5em;
+                    flex-grow: 1;
                     font-size: .75rem;
                     color: $clr-white;
                 }
@@ -109,6 +107,11 @@ nav.layout-navigation {
                         @include FullSize(50%);
                     }
                 }
+            }
+
+            @media (max-width: 480px) {
+                @include ResetWidth;
+                width: 100%;
             }
         }
 

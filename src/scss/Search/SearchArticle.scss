@@ -8,6 +8,7 @@ article.search-article {
     figure {
         width: 22%;
         aspect-ratio: 1.5;
+        min-width: 150px;
         height: max-content;
 
         img {
@@ -24,8 +25,8 @@ article.search-article {
 
         p.text {
             color: $clr-greyd;
-            font-size: .9rem;
-            width: 40%;
+            width: 70%;
+            @include Clamp(.8, 4, .9);
             margin: .5em 0;
         }
 
@@ -43,6 +44,7 @@ article.search-article {
 
             span {
                 margin-left: .5em;
+                @include Clamp(.8, 4, 1);
                 color: $clr-greyl;
                 padding: .35em;
                 background: rgba(30, 30, 30, .75);
@@ -52,15 +54,34 @@ article.search-article {
 
         p {
             &.title {
-                width: 50%;
-                font-size: 1.75rem;
+                width: 80%;
                 font-weight: 600;
+                @include Clamp(1, 6, 1.75);
             }
 
             &.category,
             &.date {
                 color: $clr-greyd;
-                font-size: .95rem;
+                @include Clamp(.8, 4, .95);
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+
+        figure {
+            width: 100%;
+        }
+
+        section.right {
+            div.wrap:last-of-type {
+                align-items: center;
+            }
+
+            p.text { 
+                width: 100%; 
+                margin-bottom: 1.5em;
             }
         }
     }

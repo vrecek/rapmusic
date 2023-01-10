@@ -2,12 +2,13 @@
 
 article.search-author {
     margin: 2em 0;
-    display: flex;
     cursor: pointer;
+    display: flex;
 
     figure {
         width: 10%;
         aspect-ratio: 1;
+        min-width: 100px;
         height: max-content;
 
         img {
@@ -28,6 +29,7 @@ article.search-author {
 
         section.details {
             display: flex;
+            flex-wrap: wrap;
 
             div.rate {
                 padding: .4em 1em;
@@ -44,6 +46,26 @@ article.search-author {
                 p {
                     font-size: .85rem;
                     font-weight: 500;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        background: rgba(20, 20, 20, .5);
+        padding: .4em;
+
+        figure { display: none; }
+
+        section.right {
+            margin: 0;
+
+            section.details {
+                margin-top: .5em;
+                
+                div.rate {
+                    padding: .4em;
+                    background: rgba(25, 25, 25, .8);
                 }
             }
         }
