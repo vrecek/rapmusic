@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/rapmusic/static/css/main.100f5177.css",
-    "main.js": "/rapmusic/static/js/main.f98e1262.js",
+    "main.css": "/rapmusic/static/css/main.4f025e6d.css",
+    "main.js": "/rapmusic/static/js/main.d28b7044.js",
     "static/js/787.14ab07a2.chunk.js": "/rapmusic/static/js/787.14ab07a2.chunk.js",
     "static/media/b6.jpg": "/rapmusic/static/media/b6.ce95b751cfc96e1b45ea.jpg",
     "static/media/Demonologia1.jpg": "/rapmusic/static/media/Demonologia1.2377afa6779037ce03ad.jpg",
@@ -57,12 +57,12 @@
     "static/media/blank.jpg": "/rapmusic/static/media/blank.51d07941d2e76ebc256e.jpg",
     "static/media/Eripe.jpg": "/rapmusic/static/media/Eripe.409fec83f881b67be06d.jpg",
     "index.html": "/rapmusic/index.html",
-    "main.100f5177.css.map": "/rapmusic/static/css/main.100f5177.css.map",
-    "main.f98e1262.js.map": "/rapmusic/static/js/main.f98e1262.js.map",
+    "main.4f025e6d.css.map": "/rapmusic/static/css/main.4f025e6d.css.map",
+    "main.d28b7044.js.map": "/rapmusic/static/js/main.d28b7044.js.map",
     "787.14ab07a2.chunk.js.map": "/rapmusic/static/js/787.14ab07a2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.100f5177.css",
-    "static/js/main.f98e1262.js"
+    "static/css/main.4f025e6d.css",
+    "static/js/main.d28b7044.js"
   ]
 }
